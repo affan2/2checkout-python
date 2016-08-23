@@ -34,7 +34,7 @@ class Api:
         headers = cls.build_headers(method)
         try:
             req = urllib2.Request(url, data, headers)
-            result = urllib2.urlopen(req).read()
+            result = urllib2.urlopen(req, timeout=30).read()
             result_safe=None
             try:
                 result_safe = unicode(result)
